@@ -1,0 +1,111 @@
+<app-header></app-header>
+<section class="product-list">
+  <app-top-header></app-top-header>
+  <ul class="breadcrumb">
+    <span class="container">
+      <li><a>Home</a></li>
+      <li style="cursor: pointer;" routerLink="/customer-order"><a routerLink="/customer-order"></a>Order</li>
+      <li>Order Details</li>
+    </span>
+  </ul>
+
+  <section class="container">
+    <div class="row">
+      <app-side-header></app-side-header>
+      <div class="col-md-9 order-details customer-dash-table">
+        <!--Product section-->
+        <div class="logout">
+          <p (click)="logout()" id="logout">
+            <a class="button_style">Log Out</a></p>
+          <h3 class="page_heading">Customer - Order Details</h3>
+        </div>
+
+        <p *ngIf="order_deatils_list.length!=0" style="display: flex;justify-content: space-between;" id="print">
+          <strong>Order No <span style="font-weight: normal">#{{order_id}}</span></strong>
+          <strong>Order Date <span style="font-weight: normal">
+              {{order_deatils_list[0].orderdate | date:'dd/MM/yyyy hh:mm a':'GMT'}}
+            </span></strong>
+        </p>
+        <section id="print1">
+          <div class="row" *ngIf="order_deatils_list.length!=0">
+            <div class="col-sm-6 address">
+              <p><strong>Billing Address</strong></p>
+              <p>
+                <span>{{order_deatils_list[0].address}}, </span>
+                <span >{{order_deatils_list[0].city}}, </span>
+                <span>{{order_deatils_list[0].state}} </span>
+                <span> {{order_deatils_list[0].country}} </span>
+                <span>({{order_deatils_list[0].zipcode}})</span>
+              </p>
+            </div>
+            <div class="col-sm-6 address" id="second">
+              <p><strong>Delivery Address</strong></p>
+              <p>
+                <span>{{order_deatils_list[0].address}}, </span>
+                <span >{{order_deatils_list[0].city}}, </span>
+                <span>{{order_deatils_list[0].state}} </span>
+                <span> {{order_deatils_list[0].country}} </span>
+                <span>({{order_deatils_list[0].zipcode}})</span>
+            </div>
+
+            <div class="col-md-12 table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><strong>Serial No. </strong></td>
+                    <td><strong>Product </strong></td>
+                    <td><strong>Qty. </strong></td>
+                    <td><strong>Unit Price </strong></td>
+                    <td><strong>Total Price </strong></td>
+                  </tr>
+                  <tr *ngFor="let id of order_deatils_list; let i=index;">
+                    <div style="display: contents;">
+                      <td>{{i+1}} </td>
+                      <td>{{id.productname}}</td>
+                      <td>{{id.productqty}} </td>
+                      <td>{{id.productprice | currency:current_currency}} </td>
+                      <td>{{(id.productprice*id.productqty) | currency:current_currency}} </td>
+                    </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-12 table-responsive" style="text-align: -webkit-right;padding-bottom: 30px">
+              <table style="margin-right: 48px">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span>
+                        <ul>
+                                                 
+                          <li><strong>Grand Total </strong></li>
+                        </ul>
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        <ul class="txrR">
+                          <li>{{total | currency:current_currency}}</li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="print_btn my-button">
+              <span (click)="print()">Print</span>
+            </div>
+          </div>
+          <p *ngIf="order_deatils_list.length==0"><strong>
+              {{msg}}
+            </strong></p>
+        </section>
+      </div>
+      <!--Product section-->
+
+    </div>
+  </section>
+</section>
+
+<app-popup></app-popup>

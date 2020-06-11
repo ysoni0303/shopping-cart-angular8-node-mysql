@@ -1,0 +1,46 @@
+
+<section class="login-form" *ngIf="code==null">
+  <div class="container">
+    <div class="login-body">
+      <span class="text-center">
+        <h4>Sign in to your account</h4>
+      </span>
+      <div class="card-details">
+        <form [formGroup]="login_user" (ngSubmit)="onSubmit()">
+          <div>
+            <label>Email Address</label>
+            <input type="email" class="form-control mail-box" formControlName="username"
+              placeholder="Enter Email Address" [ngClass]="{ 'is-invalid': submitted && f.username?.errors }">
+          </div>
+          <div *ngIf="submitted && f.username?.errors" class="invalid-feedback">
+            <div *ngIf="f.username?.errors.required" class="validation">Email is required</div>
+            <div *ngIf="f.username?.errors.email" class="validation">Enter valid email</div>
+          </div>
+
+          <div>
+            <label>Password</label>
+            <input type="Password" class="form-control pass-eye" formControlName="password" placeholder="******"
+              [ngClass]="{ 'is-invalid': submitted && f.password?.errors }">
+          </div>
+          <div *ngIf="submitted && f.password?.errors" class="invalid-feedback">
+            <div *ngIf="f.password?.errors.required" class="validation">Password is required</div>
+          </div>
+
+          <div class="add-method-btn">
+            <button  class="my-button btn-block">LOGIN</button>
+          </div>
+        </form>
+        <span class="forgot-pass">
+          <p>Don't have an account? <a routerLink="/signup">Register Here</a></p>
+        </span>
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- progress Popup -->
+<div id="progress_modal" class="modal_progress">
+	<img src="assets/gif/progress2.svg" alt="progress" title="progress">
+</div>

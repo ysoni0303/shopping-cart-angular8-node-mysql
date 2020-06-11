@@ -1,0 +1,55 @@
+<app-header></app-header>
+<section class="product-list">
+  <app-top-header></app-top-header>
+  <ul class="breadcrumb">
+    <span class="container">
+      <li><a >Home</a></li>
+      <li>Order</li>
+    </span>
+  </ul>
+
+  <section class="container">
+    <div class="row">
+      <app-side-header></app-side-header>
+      <div class="col-md-9 table-list customer-dash-table" id="">
+        <!--Product section-->
+        <div class="logout">
+          <p (click)="logout()" id="logout">
+            <a class="button_style" >Log Out</a></p>
+            <h3 class="page_heading">Customer - Order</h3>
+        </div>
+       
+        <p><strong>Order</strong></p>
+        <div class="table-responsive">
+          <table class="table">
+              <thead class="thead-grey">
+                  <td>Order No</td>
+                  <td>Date</td>
+                  <td>Status</td>
+                  <td>Action</td>
+                </thead>
+            <tbody *ngIf="order_list.length!=0">
+              <tr *ngFor="let i of order_list">
+                <td>#{{i.id}}</td>
+                <td>{{i.orderdate | date:'dd/MM/yyyy hh:mm a':'GMT'}}</td>
+                <td>{{i.orderstatus | titlecase}}</td>
+                <td>
+                  <a (click)="viewOrderDetails(i)"><span>
+                      <img alt="view" title="view" src="assets/images/view.png">
+                    </span></a>
+                </td>
+              </tr>
+           
+            </tbody>
+          </table>
+        
+        </div>
+      </div>
+      <!--Product section-->
+
+
+    </div>
+  </section>
+</section>
+
+<app-popup></app-popup>

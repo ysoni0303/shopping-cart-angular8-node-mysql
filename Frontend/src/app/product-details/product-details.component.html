@@ -1,0 +1,127 @@
+<app-header [count]="count"></app-header>
+
+<section id="record_product_details">
+
+
+  <ul class="breadcrumb other_breadcrumb">
+
+    <li><a>Home</a></li>
+    <li><a routerLink="/product"> Product </a></li>
+    <li>{{product_info.name}}</li>
+
+  </ul>
+
+  <section class="container">
+    <!--Main section-->
+    <div class="row">
+      <div class="col-md-4">
+        <div>
+          <img id="myimage" src='{{first_image}}'>
+        </div>
+      </div>
+      <div class="col-md-8 product-details-section">
+        <div class="procutDetaildestop">
+          <div style="" class="Pro_blog_detail">
+            <div class="product-details_heading" style="display: block;">
+              <h4>{{product_info.name}}</h4>
+              <span class="prduct-id">Product ID: {{product_info.id}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="size-option">
+
+          <h5>Price : {{product_info.price | currency:current_currency}}</h5>
+        </div>
+
+        <div class="size-option">
+          <h5>Quantity: <input type="text" id="qty" (keypress)='validate(event)' maxlength="2" style="width:40px"></h5>
+          
+        </div>
+        <button id='btnAddToCart' class="btn-block" (click)="addToCart()" style="margin-top: 150px"><label>ADD TO CART</label></button>
+        <div id="divadd_cart_err_msg">{{add_cart_err_msg}}</div>
+      </div>
+      <!--/product-details-section-->
+    </div>
+  </section>
+  <app-popup></app-popup>
+</section>
+
+
+<div id="myModal" class="modal fade show fadeInRight wow myModal_new add_cart" data-backdrop="static"
+  data-keyboard="false" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <button type="button" (click)="closeCartPopup()" class="close" data-dismiss="modal">&times;</button>
+      <section class="basket-Popup">
+        <div class="animated wow">
+          <div _ngcontent-serverapp-c1="" class="cart_view">
+            <div class="table-responsive">
+              <table class="table">
+                <!-- <thead>
+                        <tr class="table-head">
+                          <th colspan="3">Cart</th>
+                        </tr>
+                      </thead> -->
+                <tbody>
+                  <tr class="pro_detail">
+                    <td><img src="{{first_image}}" height="50%"></td>
+                    <td class="pro_view_head" colspan="2">
+                      <h1>{{product_info.product_name}}</h1>
+                      <p>{{product_info.product_code}}</p>
+                    </td>
+                  </tr>
+                  <tr class="pro_view_code">
+                    <td>
+                      <h4>Code</h4>
+                    </td>
+                    <td>
+                      <h4>Size</h4>
+                    </td>
+                    <td>
+                      <h4>Quantity</h4>
+                    </td>
+                  </tr>
+                  <tr class="pro_view_Detail" *ngFor="let ct of single_qty_map">
+                    <td>
+                      <p>{{ct.color_name}}</p>
+                    </td>
+                    <td>
+                      <p>{{ct.size}}</p>
+                    </td>
+                    <td>
+                      <p>{{ct.value}}</p>
+                    </td>
+                  </tr>
+                  <tr class="table-bottom">
+                    <td>
+                      <h2>Price</h2>
+                    </td>
+                    <td colspan="2">
+                      <p *ngIf="vat_type=='Ex. VAT'">
+                        {{isNumber((total_price * exchange)) ? ((total_price * exchange)|currency:current_currency:true:'1.2-2') : (total_price * exchange) }}
+                        ex. VAT
+                      </p>
+                      <p *ngIf="vat_type=='Inc. VAT'">
+                        {{isNumber(((total_price * exchange)*vat_rate)/100)+(total_price * exchange) ? ((((total_price * exchange)*vat_rate)/100)+(total_price * exchange) | currency:current_currency:true:'1.2-2') : (((total_price * exchange)*vat_rate)/100)(total_price * exchange) }}
+                        inc. VAT</p>
+                    </td>
+                  </tr>
+
+                  <tr class="check-out text-center">
+                    <td colspan="3">
+                      <button class="btn" (click)="goToCart()">View Basket</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+</div>

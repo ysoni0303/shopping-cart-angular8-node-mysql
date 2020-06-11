@@ -1,0 +1,87 @@
+
+<app-header></app-header>
+<section class="product-list">
+  <app-top-header></app-top-header>
+  <ul class="breadcrumb">
+    <span class="container">
+      <li><a href="/">Home</a></li>
+      <li>Profile</li>
+    </span>
+  </ul>
+
+  <section class="container">
+    <div class="row">
+      <app-side-header></app-side-header>
+      <div class="col-md-9 col-sm-12 table-list customer-dash-table">
+        <!--Product section-->
+        <div class="logout">
+          <p (click)="logout()" id="logout">
+            <a class="button_style">Log Out</a></p>
+          <h3 class="page_heading">Customer - Profile</h3>
+        </div>
+
+        <p><strong>Your Profile</strong></p>
+        <div class="card-details-section">
+
+
+          <div class="card-details">
+             
+            <form #profile="ngForm" >
+              <div class="input-container">
+                <label> Name</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="first_name" [(ngModel)]="name" >
+                </span>
+              </div>
+              <div class="input-container">
+                <label>Mobile Number</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="mobile_number" [ngModel]="mobile_number" >
+                </span>
+              </div>
+              <div class="input-container">
+                <label>Email</label>
+                <span>
+                  <input disabled type="email"  class="form-control" id="email" >
+                </span>
+              </div>
+              <div class="input-container">
+                <label>Address</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="address"  [ngModel]="address" >
+                </span>
+              </div>
+              <div class="input-container ">
+                <label>City</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="city" [ngModel]="city">
+                </span>
+              </div>
+              <div class="input-container ">
+                <label>State</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="state" [ngModel]="state" >
+                </span>
+              </div>
+              <div class="input-container ">
+                <label>Country</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="country" [ngModel]="country" >
+                </span>
+              </div>
+              <div class="input-container ">
+                <label>Zip code</label>
+                <span>
+                  <input disabled type="text" class="form-control" name="zipcode" [ngModel]="zipcode" >
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--Product section-->
+    </div>
+  </section>
+</section>
+
+<app-popup></app-popup>

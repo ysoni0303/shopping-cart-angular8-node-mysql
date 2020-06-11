@@ -1,0 +1,50 @@
+<app-header></app-header>
+<app-top-header></app-top-header>
+
+<section id="record_product" style="visibility: hidden;">
+  <section class="product-list">
+ 
+    <div class="product-list">
+      <ul class="breadcrumb other_breadcrumb">
+        <span class="container">
+          <li><a routerLink="/">Home</a></li>
+          <li>Product</li>
+        </span>
+      </ul>
+    </div>
+    <section class="container">
+      <div class="row">
+       
+        <div class="col-md-12 product-list" id="product-side">
+          <!-- Product section-->
+          <div class="row">
+            <div *ngFor="let product of product_list" class="col-md-3 col-sm-4 col-xs-12 product-card">
+              <a routerLink="/product-details/{{product.id}}">
+                <div>
+                  <div class="product-div">
+                    <img [src]="product.imageurl" width="100%"></div>
+                  <section>
+                    <p>{{product.name}}</p>
+                   
+                    <strong >
+                      {{product.price | currency:current_currency}}
+                    </strong>
+                   
+                  </section>
+                </div>
+              </a>
+            </div>
+
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+        <!--Product section-->
+      </div>
+    </section>
+
+
+  </section>
+
+  <app-popup></app-popup>
+
+</section>

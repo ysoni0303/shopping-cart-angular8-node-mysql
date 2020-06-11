@@ -1,0 +1,14 @@
+.printClass{left: 50%;top:-150px}
+#print{display: flex;justify-content: space-between;}
+.Print_span{font-weight: normal;}
+.dis_con{display: contents;}
+.total_sub{text-align: -webkit-right;padding-bottom: 30px}
+.total_sub table{margin-right: 48px}
+.txrR{text-align: right}
+.print_btn span{  cursor: pointer; padding: 5px 15px;background-color: #006287;color: white;font-weight: 700;
+}
+.print_btn {    margin: 0 auto;
+    /* width: 100%;*/text-align: center;margin-bottom: 15px;}
+
+.ablock{display: block}
+.anone{display: none;}

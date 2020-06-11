@@ -1,0 +1,133 @@
+<section class="login-form">
+    <div class="container">
+        <div class="login-body">
+            <span class="text-center">
+                <h4>Sign in to your account</h4>
+            </span>
+            <div class="card-details">
+                <form [formGroup]="register_user" (ngSubmit)="onSubmit()">
+                    <span>                 
+                    </span>
+
+                    <label>Name</label>
+                    <input type="text" formControlName="name" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.name?.errors }" placeholder="Enter name">
+                    <div *ngIf="submitted && f.name?.errors" class="invalid-feedback">
+                        <div *ngIf="f.name?.errors.required" class="validation">Name is required</div>
+                    </div>
+
+                    <label>Email Address</label>
+                    <input type="email" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.email?.errors }" placeholder="Enter email address">
+                    <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
+                        <div *ngIf="f.email?.errors.required" class="validation">Email is required</div>
+                        <div *ngIf="f.email?.errors.email" class="validation">Enter vaild email</div>
+                    </div>
+
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.password?.errors }" placeholder="********">
+                    <div *ngIf="submitted && f.password?.errors" class="invalid-feedback">
+                        <div *ngIf="f.password?.errors.required" class="validation">Password is required</div>
+                    </div>
+
+                    <label>Confirm Password</label>
+                    <input type="password" formControlName="confirm_password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirm_password?.errors }" placeholder="********">
+                    <div *ngIf="submitted && f.confirm_password?.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirm_password?.errors.required" class="validation">Confirm Password is required
+                        </div>
+                        <div *ngIf="f.confirm_password?.errors.mustMatch" class="validation">Password should be same
+                        </div>
+                    </div>
+
+                    <label>Mobile Number</label>
+                    <div>
+                        <input type="text" maxlength="10" formControlName="mobileno" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.mobileno?.errors }">
+                    </div>
+                    <div *ngIf="submitted && f.mobileno?.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobileno?.errors.required" class="validation">Mobile number is
+                            required
+                        </div>
+                    </div>
+                    <span class="billing-details">
+                        <h5>Please Provide Billing Address Details</h5>
+                    </span>
+
+                    <label>Address</label>
+                    <input type="text" formControlName="address" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.address?.errors }" placeholder="Enter address">
+                    <div *ngIf="submitted && f.address?.errors" class="invalid-feedback">
+                        <div *ngIf="f.address?.errors.required" class="validation">Address is required</div>
+                    </div>
+
+                     <label>City</label>
+                    <input type="text" formControlName="city" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.city?.errors }" placeholder="Enter city">
+                    <div *ngIf="submitted && f.city?.errors" class="invalid-feedback">
+                        <div *ngIf="f.city?.errors.required" class="validation">City is required</div>
+                    </div>
+
+                    <div class="county-country">
+                        <div>
+                            <label>State</label>
+                            <div>
+                                <input type="text" formControlName="state" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.state?.errors }"
+                                    placeholder="Enter state">
+                            </div>
+                            <div *ngIf="submitted && f.state?.errors" class="invalid-feedback">
+                                <div *ngIf="f.state?.errors.required" class="validation">State is required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Country</label>
+                            <div>
+
+                                <input type="text" formControlName="country" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.country?.errors }"
+                                    placeholder="Enter country">
+
+                            </div>
+                            <div *ngIf="submitted && f.country?.errors" class="invalid-feedback">
+                                <div *ngIf="f.country?.errors.required" class="validation">Country is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <label>Postcode</label>
+                    <div class="post-code">
+                        <input type="text" formControlName="zipcode" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.zipcode?.errors }"
+                            placeholder="Enter post code">
+                    </div>
+                    <div *ngIf="submitted && f.zipcode?.errors" class="invalid-feedback">
+                        <div *ngIf="f.zipcode?.errors.required" class="validation">Postcode is required</div>
+                    </div>
+
+                    <div class="add-method-btn register-btn">
+                        <button class="my-button btn-block">REGISTER</button>
+                    </div>
+                    <span class="forgot-pass">
+                        <a routerLink="/login">Back To Login</a>
+                    </span>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- progress Popup -->
+<div id="progress_modal" class="modal_progress">
+	<img src="assets/gif/progress2.svg" alt="progress" title="progress">
+</div>

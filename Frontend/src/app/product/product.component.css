@@ -1,0 +1,76 @@
+.banner-section { width: 100%; height: 350px; overflow: hidden}
+.banner-section img{ width: 100%; min-height: 100%;} 
+
+.product-div { width: 100%; height: 200px; overflow: hidden}
+.product-div img{ width: 100%; min-height: 100%;} 
+
+.rating-star { /* width: 20px;float: left;*/}
+
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #ffffff;
+     color: #006287;
+     top: 0px;
+     height: 30px;
+     width: 30px;
+     border: 1px solid #e1e1e1;
+     border-radius: 0px;
+     cursor: pointer;
+     outline: none;
+}
+
+.form-radio:checked::before
+{
+     /* position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 5px;
+    top: 1px;
+     content: '\02143';
+     transform: rotate(40deg); */
+}
+.form-radio:hover
+{
+     background-color: #a5c4ec;
+}
+.form-radio:checked
+{
+     background-color: #a5c4ec;
+}
+label
+{
+     font: 15px/1.7 'Open Sans', sans-serif;
+     color: #333;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     cursor: pointer;
+} 
+.top-display-results{padding: 9px 15px;font-size: 15px;}
+
+@media (min-width:320px) and (max-width: 720px){
+.banner-section[_ngcontent-serverApp-c1] { height: 100px;}
+.product-card section {
+     min-height: auto;
+ }
+}
+
+.sortby select {
+    height: 38px;/* width: 189px; */
+    border-radius: 3px;
+    border: 1px solid rgb(202, 202, 202);
+    color: var(--gray);
+    padding: 0 10px;
+    font-weight: 700;font-size: 15px;
+}
+.sortby, .result-show {font-size: 12px;}
+.result-show select {font-weight: 700;font-size: 15px;
+ }
+
+ .result-show {
+     padding: 0px 0px 0px;
+     font-size: 14px;
+ }

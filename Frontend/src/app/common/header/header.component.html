@@ -1,0 +1,96 @@
+<div id="record-header">
+	<div class="overlay_div"></div>
+	<div id="g_header" class="grey_header">
+		<div class="row">
+			<!--Top Row Start-->
+			<div class="col-md-12 top-grey-row">
+			
+			</div>
+		</div>
+		<!--Top Row End-->
+	</div>
+	<header id="a_header" class="animated">
+		<!--Second Row Start-->
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-4 col-sm-12 landS_view_mbl">
+					<a href="/customer-profile">
+						<img src="assets/images/newlogo.png" alt="brand logo" title="brand logo"
+							class="logo wow zoomIn" data-wow-delay="0.5s">
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 search-box-btn landS_view_mbl2">
+					
+				</div>
+				<div class="col-md-4 col-sm-6 landS_view_mbl3">
+					<div class="login-basket">
+						<a href="/customer-profile" class="login">My Account</a>
+						<a href="/cart">
+							<b>
+								{{ count | currency:current_currency }}
+							</b>
+							<img class="imgCart" src="assets/images/cart.png" alt="Basket" title="Basket">
+							<span class="numitems">
+								<strong class="cart_item_count">{{cart_item_count}}</strong>
+							</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--Second Row Start-->
+	</header>
+	<nav class="navbar bg-blue navbar-expand-xl" id="navbar-first">
+		<div class="container">
+			<div class="mobile-view-1">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<a href="/customer-profile"><img alt="" src="assets/images/logo-white.png" alt="brand logo" title="brand logo" class="logo-2"></a>
+				<div class="login-basket" *ngFor="let h of header">
+						
+					<a href="tel:8770560547"><span class="contact-text"><img alt="call" title="call"
+						src="assets/images/phone-30.png">
+						</span></a>
+
+					<a href="mailto:mukesh14771@gmail.com" class=""><img alt="call" title="call"
+						src="assets/images/gmail-25.png"></a>
+					
+
+	
+					<a href="/customer-profile" ><img alt="login" title="login"
+							src="assets/images/login-white.png"></a>
+
+					<a href="/cart">
+						<img alt="Basket" title="Basket" src="assets/images/cart-white.png">
+						<span class="numitems">
+							<strong class="cart_item_count">{{cart_item_count}}</strong>
+						</span>
+					</a>
+
+				</div>
+			</div>
+
+
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="dropdown">
+						<a href="/product">
+						<span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Products</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+<!-- progress Popup -->
+<div id="progress_modal" class="modal_progress">
+	<img src="assets/gif/progress2.svg" alt="progress" title="progress">
+</div>

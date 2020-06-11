@@ -1,0 +1,21 @@
+.prod_image{
+    height: 10vh;
+}
+
+.custo{font-weight: 500;
+    width: 220px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.record_cart_c .div1{font-size:40px;padding-top: 20px;padding-bottom: 0px;}
+.record_cart_c .div2{font-size:20px;padding-top: 0px;padding-bottom: 50px;}
+
+.newcusto{    box-shadow: 0px 1px 3px 0px #848080; -webkit-box-shadow: 0px 1px 3px 0px #848080;
+    padding: 5px 10px;}
+    .cart-section .table tr .add-logo button {    font-size: 13px;
+        margin: 3px 5px 0px 0px;
+    }
+
+#field1 input {
+        box-shadow: none;
+        width: 30px;}

@@ -1,0 +1,115 @@
+<app-header [count]="sub_total*exchange" [cart_item_count]="totalItem"></app-header>
+
+
+<ul class="breadcrumb other_breadcrumb">
+    <span class="container">
+        <li><a>Home</a></li>
+        <li>Cart</li>
+    </span>
+</ul>
+
+<section id="record_cart">
+    <section class="cart-section container record_cart_c" *ngIf="is_empty">
+        <div class="div1">Your Basket</div>
+        <div class="div2">You currently have no items in your basket.
+        </div>
+    </section>
+    <section class="cart-section container" *ngIf="!is_empty">
+        <div class="row">
+            <div class="col-md-9 col-sm-12">
+                <section>
+                    <div class="table-responsive">
+                        <table class="table" id="add-cart-table">
+                            <thead>
+                                <tr class="table-head">
+                                    <th>Image</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of cart_item ">
+                                    <td><img [src]="item.imageurl" style="width:50px"></td>
+                                    <td class="pro_detail">
+                                        <span>
+                                            <strong><a routerLink="/product-details/{{item.id}}">{{item.name}}</a></strong>
+                                        </span>
+                                    </td>
+                                    <td >
+                                        <span style="color: #006287;">
+                                            {{item.qty }}
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span>
+                                            <b>{{item.price | currency:current_currency }}</b>
+                                           
+                                        </span>
+                                    </td>
+                                    <td> <a (click)="removeItemFromCart(item.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="table-head">
+                                <th colspan="2">Checkout Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            
+                            <tr class="amount">
+                                <td>Payble Amount</td>
+                                <td class="total-payble">{{total_price  | currency:current_currency}}</td>
+                            </tr>
+                            <tr class="check-out">
+                                <td colspan="2">
+                                    <button class="btn-block"><a href="/checkout">CHECK OUT</a></button>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <app-popup></app-popup>
+</section>
+<!-- Confirmation popup -->
+<div id="confirm_popup" class="popupmodal">
+    <div class="popupmodal-content">
+        <form #otpForm="ngForm" ngNativeValidate>
+            <div class="popupmodal-header">
+                <!-- <span class="popupclose" (click)="closePopup()">&times;</span> -->
+                <h4 id="header">Confirmation</h4>
+            </div>
+            <div class="popupmodal-body">
+                <div id="SuccessMsg">
+                    Do you really want to delete this product from cart?
+                </div>
+            </div>
+            <div (click)="yesRemoveClick()"
+                id="btn">
+                <input type="button" class="btn my-button btn-block" value="Yes">
+            </div>
+            <div (click)="noRemoveClick()"
+                id="btn">
+                <input type="button" class="btn my-button btn-block" value="No">
+            </div>
+        </form>
+    </div>
+</div>
